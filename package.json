@@ -1,0 +1,46 @@
+{
+  "name": "tree-sitter-meraki",
+  "version": "0.0.1",
+  "description": "Tree sitter parser for meraki programming language",
+  "main": "grammar.js",
+  "types": "bindings/node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi --strip"
+  },
+  "keywords": [
+    "meraki"
+  ],
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
+  "author": "MilkeeyCat",
+  "license": "AGPL-3.0",
+  "devDependencies": {
+    "tree-sitter-cli": "^0.22.6",
+    "prebuildify": "^6.0.0"
+  },
+  "dependencies": {
+    "node-gyp-build": "^4.8.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree_sitter": {
+      "optional": true
+    }
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.meraki",
+      "injection-regex": "^meraki$"
+    }
+  ]
+}
