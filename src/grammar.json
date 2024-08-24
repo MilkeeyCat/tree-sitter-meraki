@@ -64,7 +64,24 @@
         },
         {
           "type": "SYMBOL",
-          "name": "integer_literal"
+          "name": "integer"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bool"
+        }
+      ]
+    },
+    "bool": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "true"
+        },
+        {
+          "type": "STRING",
+          "value": "false"
         }
       ]
     },
@@ -213,7 +230,7 @@
       "type": "PATTERN",
       "value": "[a-z_]+"
     },
-    "integer_literal": {
+    "integer": {
       "type": "PATTERN",
       "value": "\\d+"
     }

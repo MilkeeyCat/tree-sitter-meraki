@@ -15,6 +15,11 @@
     }
   },
   {
+    "type": "bool",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "function_definition",
     "named": true,
     "fields": {},
@@ -74,11 +79,15 @@
       "required": true,
       "types": [
         {
+          "type": "bool",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
         {
-          "type": "integer_literal",
+          "type": "integer",
           "named": true
         }
       ]
@@ -147,6 +156,10 @@
     "named": false
   },
   {
+    "type": "false",
+    "named": false
+  },
+  {
     "type": "i16",
     "named": false
   },
@@ -167,7 +180,7 @@
     "named": true
   },
   {
-    "type": "integer_literal",
+    "type": "integer",
     "named": true
   },
   {
@@ -176,6 +189,10 @@
   },
   {
     "type": "return",
+    "named": false
+  },
+  {
+    "type": "true",
     "named": false
   },
   {

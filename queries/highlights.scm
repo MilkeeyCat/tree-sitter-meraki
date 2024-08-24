@@ -1,6 +1,13 @@
 "return" @keyword
 
-";" @punctuation.delimiter
+[
+    "true"
+    "false"
+] @boolean
+
+[
+    ";"
+] @punctuation.delimiter
 
 [
     "("
@@ -9,7 +16,10 @@
     "}"
 ] @punctuation.bracket
 
+[
+    "*"
+] @operator
 
 (primitive_type) @type
 (identifier) @function
-(integer_literal) @number
+(integer) @number

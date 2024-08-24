@@ -19,8 +19,10 @@ module.exports = grammar({
     ),
     _expression: $ => choice(
       $.identifier,
-      $.integer_literal,
+      $.integer,
+      $.bool
     ),
+    bool: $ => choice("true", "false"),
     _statement: $ => choice(
       $.return_statement,
     ),
@@ -56,6 +58,6 @@ module.exports = grammar({
     ),
 
     identifier: $ => /[a-z_]+/,
-    integer_literal: $ => /\d+/,
+    integer: $ => /\d+/,
   },
 })
