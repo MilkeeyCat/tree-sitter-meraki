@@ -1,4 +1,8 @@
-"return" @keyword
+[
+    "if"
+    "else"
+    "return"
+] @keyword
 
 [
     "true"
@@ -17,9 +21,23 @@
 ] @punctuation.bracket
 
 [
+    "+"
+    "-"
     "*"
+    "/"
+    "<"
+    ">"
+    "<="
+    ">="
+    "=="
+    "!="
+    "="
 ] @operator
 
 (primitive_type) @type
-(identifier) @function
+(identifier) @variable
+
+(function_parameter) @variable.parameter
+(function_name) @function
+
 (integer) @number
