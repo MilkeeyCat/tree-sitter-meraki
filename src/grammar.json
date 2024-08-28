@@ -18,6 +18,10 @@
         {
           "type": "SYMBOL",
           "name": "variable_definition"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "comment"
         }
       ]
     },
@@ -385,6 +389,10 @@
         {
           "type": "SYMBOL",
           "name": "variable_definition"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "comment"
         }
       ]
     },
@@ -623,6 +631,19 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "comment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "//"
+        },
+        {
+          "type": "PATTERN",
+          "value": ".*"
         }
       ]
     },

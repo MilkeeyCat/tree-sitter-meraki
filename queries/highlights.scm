@@ -44,3 +44,5 @@
 
 (integer) @number
 (string_literal) @string
+
+(comment) @comment @spell

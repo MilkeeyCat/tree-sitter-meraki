@@ -19,6 +19,7 @@ module.exports = grammar({
     _definition: $ => choice(
       $.function_definition,
       $.variable_definition,
+      $.comment,
     ),
     _type: $ => choice(
       $.primitive_type,
@@ -55,6 +56,7 @@ module.exports = grammar({
       $.return_statement,
       $.if_statement,
       $.variable_definition,
+      $.comment,
     ),
     primitive_type: $ => choice(
       ...[8, 16, 32, 64].map(b => `u${b}`),
@@ -98,6 +100,7 @@ module.exports = grammar({
         seq("else", $.block)
       ),
     ),
+    comment: $ => seq('//', /.*/),
 
     string_literal: $ => seq(
       "\"",
