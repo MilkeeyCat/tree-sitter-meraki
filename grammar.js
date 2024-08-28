@@ -3,11 +3,13 @@
 
 const PREC = {
   ASSIGN: 1,
-  COMPARISON: 2,
-  EQUALITY: 3,
-  SUM: 4,
-  PRODUCT: 5,
-  PREFIX: 6,
+  LOGICAL_OR: 2,
+  LOGICAL_AND: 3,
+  COMPARISON: 4,
+  EQUALITY: 5,
+  SUM: 6,
+  PRODUCT: 7,
+  PREFIX: 8,
 };
 
 module.exports = grammar({
@@ -31,6 +33,7 @@ module.exports = grammar({
       $.integer,
       $.bool,
       $.binary_expression,
+      $.string_literal,
     ),
     binary_expression: $ => choice(
       prec.left(PREC.SUM, seq($._expression, "+", $._expression)),
@@ -43,6 +46,8 @@ module.exports = grammar({
       prec.left(PREC.COMPARISON, seq($._expression, ">=", $._expression)),
       prec.left(PREC.EQUALITY, seq($._expression, "==", $._expression)),
       prec.left(PREC.EQUALITY, seq($._expression, "!=", $._expression)),
+      prec.left(PREC.LOGICAL_OR, seq($._expression, "||", $._expression)),
+      prec.left(PREC.LOGICAL_AND, seq($._expression, "&&", $._expression)),
       prec.right(PREC.ASSIGN, seq($._expression, "=", $._expression)),
     ),
     bool: $ => choice("true", "false"),
@@ -94,6 +99,11 @@ module.exports = grammar({
       ),
     ),
 
+    string_literal: $ => seq(
+      "\"",
+      /[^"]+/,
+      "\"",
+    ),
     identifier: $ => /[a-z_]+/,
     integer: $ => /\d+/,
   },

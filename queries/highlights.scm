@@ -32,6 +32,8 @@
     "=="
     "!="
     "="
+    "&&"
+    "||"
 ] @operator
 
 (primitive_type) @type
@@ -41,3 +43,4 @@
 (function_name) @function
 
 (integer) @number
+(string_literal) @string
