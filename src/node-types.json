@@ -51,6 +51,10 @@
           "named": true
         },
         {
+          "type": "struct_declaration",
+          "named": true
+        },
+        {
           "type": "variable_definition",
           "named": true
         }
@@ -205,6 +209,10 @@
           "named": true
         },
         {
+          "type": "struct_declaration",
+          "named": true
+        },
+        {
           "type": "variable_definition",
           "named": true
         }
@@ -215,6 +223,33 @@
     "type": "string_literal",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "struct_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "pointer_type",
+          "named": true
+        },
+        {
+          "type": "primitive_type",
+          "named": true
+        },
+        {
+          "type": "struct_field",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "variable_definition",
@@ -382,6 +417,14 @@
   {
     "type": "return",
     "named": false
+  },
+  {
+    "type": "struct",
+    "named": false
+  },
+  {
+    "type": "struct_field",
+    "named": true
   },
   {
     "type": "true",

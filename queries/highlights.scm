@@ -1,4 +1,5 @@
 [
+    "struct"
     "if"
     "else"
     "return"
@@ -38,6 +39,7 @@
 
 (primitive_type) @type
 (identifier) @variable
+(struct_field) @variable.member
 
 (function_parameter) @variable.parameter
 (function_name) @function

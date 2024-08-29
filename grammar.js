@@ -19,6 +19,7 @@ module.exports = grammar({
     _definition: $ => choice(
       $.function_definition,
       $.variable_definition,
+      $.struct_declaration,
       $.comment,
     ),
     _type: $ => choice(
@@ -57,6 +58,7 @@ module.exports = grammar({
       $.if_statement,
       $.variable_definition,
       $.comment,
+      $.struct_declaration,
     ),
     primitive_type: $ => choice(
       ...[8, 16, 32, 64].map(b => `u${b}`),
@@ -101,6 +103,19 @@ module.exports = grammar({
       ),
     ),
     comment: $ => seq('//', /.*/),
+    struct_declaration: $ => seq(
+      "struct",
+      $.identifier,
+      "{",
+      repeat(
+        seq(
+          $._type,
+          alias($.identifier, $.struct_field),
+          optional(","),
+        ),
+      ),
+      "}",
+    ),
 
     string_literal: $ => seq(
       "\"",
