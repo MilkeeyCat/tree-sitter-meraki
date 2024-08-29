@@ -16,6 +16,10 @@
           "named": true
         },
         {
+          "type": "function_call",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -72,6 +76,45 @@
     "fields": {}
   },
   {
+    "type": "function_call",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "function_call_name",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "function_definition",
     "named": true,
     "fields": {},
@@ -120,6 +163,10 @@
         },
         {
           "type": "bool",
+          "named": true
+        },
+        {
+          "type": "function_call",
           "named": true
         },
         {
@@ -175,6 +222,10 @@
         },
         {
           "type": "bool",
+          "named": true
+        },
+        {
+          "type": "function_call",
           "named": true
         },
         {
@@ -265,6 +316,10 @@
         },
         {
           "type": "bool",
+          "named": true
+        },
+        {
+          "type": "function_call",
           "named": true
         },
         {
@@ -373,6 +428,10 @@
   {
     "type": "false",
     "named": false
+  },
+  {
+    "type": "function_call_name",
+    "named": true
   },
   {
     "type": "function_name",

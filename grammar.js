@@ -36,6 +36,7 @@ module.exports = grammar({
       $.bool,
       $.binary_expression,
       $.string_literal,
+      $.function_call,
     ),
     binary_expression: $ => choice(
       prec.left(PREC.SUM, seq($._expression, "+", $._expression)),
@@ -115,6 +116,17 @@ module.exports = grammar({
         ),
       ),
       "}",
+    ),
+    function_call: $ => seq(
+      alias($.identifier, $.function_call_name),
+      "(",
+      repeat(
+        seq(
+          $._expression,
+          optional(","),
+        ),
+      ),
+      ")",
     ),
 
     string_literal: $ => seq(
