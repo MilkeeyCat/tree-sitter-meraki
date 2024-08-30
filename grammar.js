@@ -60,6 +60,7 @@ module.exports = grammar({
       $.variable_definition,
       $.comment,
       $.struct_declaration,
+      seq($._expression, ";"),
     ),
     primitive_type: $ => choice(
       ...[8, 16, 32, 64].map(b => `u${b}`),
@@ -112,7 +113,7 @@ module.exports = grammar({
         seq(
           $._type,
           alias($.identifier, $.struct_field),
-          optional(","),
+          ";",
         ),
       ),
       "}",
@@ -134,7 +135,7 @@ module.exports = grammar({
       /[^"]+/,
       "\"",
     ),
-    identifier: $ => /[a-z_]+/,
+    identifier: $ => /[A-z_]+/,
     integer: $ => /\d+/,
   },
 })
