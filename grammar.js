@@ -25,10 +25,11 @@ module.exports = grammar({
     _type: $ => choice(
       $.primitive_type,
       $.pointer_type,
+      alias($.identifier, $.type_identifier),
     ),
     pointer_type: $ => seq(
-      optional($._type),
       "*",
+      optional($._type),
     ),
     _expression: $ => choice(
       $.identifier,
@@ -71,19 +72,34 @@ module.exports = grammar({
       "void",
     ),
     variable_definition: $ => seq(
-      $._type,
+      "let",
       $.identifier,
+      ":",
+      $._type,
       optional(seq("=", $._expression)),
       ";",
     ),
     function_definition: $ => seq(
-      $._type,
+      "fn",
       alias($.identifier, $.function_name),
       "(",
-      repeat(
-        seq($._type, alias($.identifier, $.function_parameter), optional(",")),
+      optional(
+        seq(
+          seq(
+            alias($.identifier, $.function_parameter), ":", $._type, optional(",")
+          ),
+          repeat(
+            seq(
+              ",",
+              alias($.identifier, $.function_parameter), ":", $._type, optional(",")
+            ),
+          ),
+        ),
       ),
+      optional(","),
       ")",
+      "->",
+      $._type,
       choice($.block, ";"),
     ),
     block: $ => seq(
@@ -107,12 +123,13 @@ module.exports = grammar({
     comment: $ => seq('//', /.*/),
     struct_declaration: $ => seq(
       "struct",
-      $.identifier,
+      alias($.identifier, $.type_identifier),
       "{",
       repeat(
         seq(
-          $._type,
           alias($.identifier, $.struct_field),
+          ":",
+          $._type,
           ";",
         ),
       ),

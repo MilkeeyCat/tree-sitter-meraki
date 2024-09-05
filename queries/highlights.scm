@@ -1,4 +1,6 @@
 [
+    "fn"
+    "let"
     "struct"
     "if"
     "else"
@@ -12,6 +14,7 @@
 
 [
     ";"
+    ":"
 ] @punctuation.delimiter
 
 [
@@ -35,9 +38,11 @@
     "="
     "&&"
     "||"
+    "->"
 ] @operator
 
-(primitive_type) @type
+(type_identifier) @type
+(primitive_type) @type.builtin
 (identifier) @variable
 (struct_field) @variable.member
 
