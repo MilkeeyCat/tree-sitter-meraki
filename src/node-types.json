@@ -1,5 +1,44 @@
 [
   {
+    "type": "array_access",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "array_access",
+          "named": true
+        },
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "binary_expression",
     "named": true,
     "fields": {},
@@ -7,6 +46,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "array_access",
+          "named": true
+        },
         {
           "type": "binary_expression",
           "named": true
@@ -42,6 +85,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "array_access",
+          "named": true
+        },
         {
           "type": "binary_expression",
           "named": true
@@ -107,6 +154,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "array_access",
+          "named": true
+        },
         {
           "type": "binary_expression",
           "named": true
@@ -182,6 +233,10 @@
       "required": true,
       "types": [
         {
+          "type": "array_access",
+          "named": true
+        },
+        {
           "type": "binary_expression",
           "named": true
         },
@@ -248,6 +303,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "array_access",
+          "named": true
+        },
         {
           "type": "binary_expression",
           "named": true
@@ -343,6 +402,10 @@
       "required": true,
       "types": [
         {
+          "type": "array_access",
+          "named": true
+        },
+        {
           "type": "binary_expression",
           "named": true
         },
@@ -387,6 +450,10 @@
   },
   {
     "type": "\"",
+    "named": false
+  },
+  {
+    "type": "&",
     "named": false
   },
   {
@@ -459,6 +526,14 @@
   },
   {
     "type": ">=",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
     "named": false
   },
   {
@@ -571,6 +646,10 @@
   },
   {
     "type": "{",
+    "named": false
+  },
+  {
+    "type": "|",
     "named": false
   },
   {

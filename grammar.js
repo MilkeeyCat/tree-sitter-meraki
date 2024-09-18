@@ -5,11 +5,13 @@ const PREC = {
   ASSIGN: 1,
   LOGICAL_OR: 2,
   LOGICAL_AND: 3,
-  COMPARISON: 4,
-  EQUALITY: 5,
-  SUM: 6,
-  PRODUCT: 7,
-  PREFIX: 8,
+  BITWISE_OR: 4,
+  BITWISE_AND: 5,
+  COMPARISON: 6,
+  EQUALITY: 7,
+  SUM: 8,
+  PRODUCT: 9,
+  PREFIX: 10,
 };
 
 module.exports = grammar({
@@ -37,6 +39,7 @@ module.exports = grammar({
       $.bool,
       $.binary_expression,
       $.string_literal,
+      $.array_access,
       $.function_call,
     ),
     binary_expression: $ => choice(
@@ -52,6 +55,8 @@ module.exports = grammar({
       prec.left(PREC.EQUALITY, seq($._expression, "!=", $._expression)),
       prec.left(PREC.LOGICAL_OR, seq($._expression, "||", $._expression)),
       prec.left(PREC.LOGICAL_AND, seq($._expression, "&&", $._expression)),
+      prec.left(PREC.BITWISE_OR, seq($._expression, "|", $._expression)),
+      prec.left(PREC.BITWISE_AND, seq($._expression, "&", $._expression)),
       prec.right(PREC.ASSIGN, seq($._expression, "=", $._expression)),
     ),
     bool: $ => choice("true", "false"),
@@ -101,6 +106,12 @@ module.exports = grammar({
       "->",
       $._type,
       choice($.block, ";"),
+    ),
+    array_access: $ => seq(
+      $.identifier,
+      "[",
+      $._expression,
+      "]",
     ),
     block: $ => seq(
       "{",
