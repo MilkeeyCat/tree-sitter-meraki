@@ -39,8 +39,8 @@ module.exports = grammar({
       $.bool,
       $.binary_expression,
       $.string_literal,
-      $.array_access,
       $.function_call,
+      $.array_access,
     ),
     binary_expression: $ => choice(
       prec.left(PREC.SUM, seq($._expression, "+", $._expression)),
@@ -163,7 +163,7 @@ module.exports = grammar({
       /[^"]*/,
       "\"",
     ),
-    identifier: $ => /[A-z_]+/,
+    identifier: $ => /[A-Za-z_]+/,
     integer: $ => /\d+/,
   },
 })

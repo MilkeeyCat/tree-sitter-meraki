@@ -97,11 +97,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "array_access"
+          "name": "function_call"
         },
         {
           "type": "SYMBOL",
-          "name": "function_call"
+          "name": "array_access"
         }
       ]
     },
@@ -951,7 +951,7 @@
     },
     "identifier": {
       "type": "PATTERN",
-      "value": "[A-z_]+"
+      "value": "[A-Za-z_]+"
     },
     "integer": {
       "type": "PATTERN",
