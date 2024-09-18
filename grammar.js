@@ -160,7 +160,7 @@ module.exports = grammar({
 
     string_literal: $ => seq(
       "\"",
-      /[^"]+/,
+      /[^"]*/,
       "\"",
     ),
     identifier: $ => /[A-z_]+/,
