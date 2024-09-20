@@ -34,13 +34,14 @@ module.exports = grammar({
       optional($._type),
     ),
     _expression: $ => choice(
-      $.identifier,
+      prec.left($.identifier),
       $.integer,
       $.bool,
       $.binary_expression,
       $.string_literal,
       $.function_call,
       $.array_access,
+      $.struct_expression,
     ),
     binary_expression: $ => choice(
       prec.left(PREC.SUM, seq($._expression, "+", $._expression)),
@@ -112,6 +113,29 @@ module.exports = grammar({
       "[",
       $._expression,
       "]",
+    ),
+    struct_expression: $ => seq(
+      alias($.identifier, $.type_identifier),
+      "{",
+      optional(
+        seq(
+          seq(
+            alias($.identifier, $.struct_field),
+            ":",
+            $._expression
+          ),
+          repeat(
+            seq(
+              ",",
+              alias($.identifier, $.struct_field),
+              ":",
+              $._expression,
+            ),
+          ),
+        ),
+      ),
+      optional(","),
+      "}",
     ),
     block: $ => seq(
       "{",

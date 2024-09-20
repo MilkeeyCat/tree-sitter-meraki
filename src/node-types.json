@@ -34,6 +34,10 @@
         {
           "type": "string_literal",
           "named": true
+        },
+        {
+          "type": "struct_expression",
+          "named": true
         }
       ]
     }
@@ -72,6 +76,10 @@
         },
         {
           "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "struct_expression",
           "named": true
         }
       ]
@@ -130,6 +138,10 @@
           "named": true
         },
         {
+          "type": "struct_expression",
+          "named": true
+        },
+        {
           "type": "variable_definition",
           "named": true
         }
@@ -184,6 +196,10 @@
         },
         {
           "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "struct_expression",
           "named": true
         }
       ]
@@ -263,6 +279,10 @@
         {
           "type": "string_literal",
           "named": true
+        },
+        {
+          "type": "struct_expression",
+          "named": true
         }
       ]
     }
@@ -330,6 +350,10 @@
         {
           "type": "string_literal",
           "named": true
+        },
+        {
+          "type": "struct_expression",
+          "named": true
         }
       ]
     }
@@ -394,6 +418,57 @@
     }
   },
   {
+    "type": "struct_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "array_access",
+          "named": true
+        },
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "struct_expression",
+          "named": true
+        },
+        {
+          "type": "struct_field",
+          "named": true
+        },
+        {
+          "type": "type_identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "variable_definition",
     "named": true,
     "fields": {},
@@ -435,6 +510,10 @@
         },
         {
           "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "struct_expression",
           "named": true
         },
         {
