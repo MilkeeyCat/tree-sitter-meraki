@@ -64,6 +64,7 @@ module.exports = grammar({
     _statement: $ => choice(
       $.return_statement,
       $.if_statement,
+      $.while_statement,
       $.variable_definition,
       $.comment,
       $.struct_declaration,
@@ -154,6 +155,11 @@ module.exports = grammar({
       optional(
         seq("else", $.block)
       ),
+    ),
+    while_statement: $ => seq(
+      "while",
+      $._expression,
+      $.block,
     ),
     comment: $ => seq('//', /.*/),
     struct_declaration: $ => seq(

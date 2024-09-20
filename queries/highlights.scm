@@ -4,6 +4,7 @@
     "struct"
     "if"
     "else"
+    "while"
     "return"
 ] @keyword
 
