@@ -37,6 +37,7 @@ module.exports = grammar({
       prec.left($.identifier),
       $.integer,
       $.bool,
+      $.unary_expressions,
       $.binary_expression,
       $.string_literal,
       $.function_call,
@@ -60,6 +61,13 @@ module.exports = grammar({
       prec.left(PREC.BITWISE_OR, seq($._expression, "|", $._expression)),
       prec.left(PREC.BITWISE_AND, seq($._expression, "&", $._expression)),
       prec.right(PREC.ASSIGN, seq($._expression, "=", $._expression)),
+    ),
+    unary_expressions: $ => choice(
+      prec.left(PREC.PREFIX, seq("!", $._expression)),
+      prec.left(PREC.PREFIX, seq("-", $._expression)),
+      prec.left(PREC.PREFIX, seq("*", $._expression)),
+      prec.left(PREC.PREFIX, seq("&", $._expression)),
+      prec.left(PREC.PREFIX, seq("~", $._expression)),
     ),
     bool: $ => choice("true", "false"),
     _statement: $ => choice(

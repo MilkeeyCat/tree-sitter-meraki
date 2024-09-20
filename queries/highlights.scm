@@ -46,6 +46,8 @@
     "&"
     "||"
     "->"
+    "!"
+    "~"
 ] @operator
 
 (type_identifier) @type
