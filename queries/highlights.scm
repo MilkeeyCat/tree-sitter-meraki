@@ -61,3 +61,5 @@
 (string_literal) @string
 
 (comment) @comment @spell
+
+"NULL" @variable.builtin

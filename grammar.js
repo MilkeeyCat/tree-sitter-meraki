@@ -42,6 +42,7 @@ module.exports = grammar({
       $.function_call,
       $.array_access,
       $.struct_expression,
+      "NULL",
     ),
     binary_expression: $ => choice(
       prec.left(PREC.SUM, seq($._expression, "+", $._expression)),
