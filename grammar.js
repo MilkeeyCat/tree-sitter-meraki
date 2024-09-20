@@ -65,6 +65,7 @@ module.exports = grammar({
       $.return_statement,
       $.if_statement,
       $.while_statement,
+      $.for_statement,
       $.variable_definition,
       $.comment,
       $.struct_declaration,
@@ -159,6 +160,18 @@ module.exports = grammar({
     while_statement: $ => seq(
       "while",
       $._expression,
+      $.block,
+    ),
+    for_statement: $ => seq(
+      "for",
+      optional(choice(
+        $.variable_definition,
+        $._expression,
+      )),
+      ";",
+      optional($._expression),
+      ";",
+      optional($._expression),
       $.block,
     ),
     comment: $ => seq('//', /.*/),

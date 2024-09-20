@@ -5,6 +5,7 @@
     "if"
     "else"
     "while"
+    "for"
     "return"
 ] @keyword
 
