@@ -31,7 +31,7 @@ module.exports = grammar({
     ),
     pointer_type: $ => seq(
       "*",
-      optional($._type),
+      $._type,
     ),
     _expression: $ => choice(
       prec.left($.identifier),
@@ -43,6 +43,7 @@ module.exports = grammar({
       $.function_call,
       $.array_access,
       $.struct_expression,
+      $.cast_expression,
       "NULL",
     ),
     binary_expression: $ => choice(
@@ -147,6 +148,11 @@ module.exports = grammar({
       ),
       optional(","),
       "}",
+    ),
+    cast_expression: $ => seq(
+      $._expression,
+      "as",
+      $._type,
     ),
     block: $ => seq(
       "{",

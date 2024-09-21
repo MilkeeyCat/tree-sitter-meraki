@@ -7,6 +7,7 @@
     "while"
     "for"
     "return"
+    "as"
 ] @keyword
 
 [

@@ -59,16 +59,8 @@
           "value": "*"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_type"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "_type"
         }
       ]
     },
@@ -114,6 +106,10 @@
         {
           "type": "SYMBOL",
           "name": "struct_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "cast_expression"
         },
         {
           "type": "STRING",
@@ -952,6 +948,23 @@
         {
           "type": "STRING",
           "value": "}"
+        }
+      ]
+    },
+    "cast_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        },
+        {
+          "type": "STRING",
+          "value": "as"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_type"
         }
       ]
     },
