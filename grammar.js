@@ -181,9 +181,8 @@ module.exports = grammar({
       "for",
       optional(choice(
         $.variable_definition,
-        $._expression,
+        seq($._expression, ";"),
       )),
-      ";",
       optional($._expression),
       ";",
       optional($._expression),
