@@ -79,6 +79,8 @@ module.exports = grammar({
       $.variable_definition,
       $.comment,
       $.struct_declaration,
+      $.continue,
+      $.break,
       seq($._expression, ";"),
     ),
     primitive_type: $ => choice(
@@ -203,6 +205,8 @@ module.exports = grammar({
       ),
       "}",
     ),
+    continue: $ => seq("continue", ";"),
+    break: $ => seq("break", ";"),
     function_call: $ => seq(
       alias($.identifier, $.function_call_name),
       "(",

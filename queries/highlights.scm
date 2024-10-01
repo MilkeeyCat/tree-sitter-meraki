@@ -8,6 +8,8 @@
     "for"
     "return"
     "as"
+    "continue"
+    "break"
 ] @keyword
 
 [
