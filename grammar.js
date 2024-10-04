@@ -28,11 +28,18 @@ module.exports = grammar({
     _type: $ => choice(
       $.primitive_type,
       $.pointer_type,
+      $.array_type,
       alias($.identifier, $.type_identifier),
     ),
-    pointer_type: $ => seq(
+    pointer_type: $ => prec.left(seq(
       "*",
       $._type,
+    )),
+    array_type: $ => seq(
+      $._type,
+      "[",
+      $.integer, // For now allow only integer literals for array size
+      "]",
     ),
     _expression: $ => choice(
       prec.left($.identifier),
@@ -45,6 +52,7 @@ module.exports = grammar({
       $.array_access,
       $.struct_access,
       $.struct_expression,
+      $.array_expression,
       $.cast_expression,
       $.grouped_expression,
       "NULL",
@@ -165,11 +173,29 @@ module.exports = grammar({
       optional(","),
       "}",
     ),
-    cast_expression: $ => seq(
+    array_expression: $ => seq(
+      "[",
+      optional(
+        seq(
+          seq(
+            $._expression
+          ),
+          repeat(
+            seq(
+              ",",
+              $._expression,
+            ),
+          ),
+        ),
+      ),
+      optional(","),
+      "]",
+    ),
+    cast_expression: $ => prec.right(seq(
       $._expression,
       "as",
       $._type,
-    ),
+    )),
     grouped_expression: $ => seq("(", $._expression, ")"),
     block: $ => seq(
       "{",
