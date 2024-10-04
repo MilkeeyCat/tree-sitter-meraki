@@ -12,6 +12,7 @@ const PREC = {
   SUM: 8,
   PRODUCT: 9,
   PREFIX: 10,
+  ACCESS: 11,
 };
 
 module.exports = grammar({
@@ -42,8 +43,10 @@ module.exports = grammar({
       $.string_literal,
       $.function_call,
       $.array_access,
+      $.struct_access,
       $.struct_expression,
       $.cast_expression,
+      $.grouped_expression,
       "NULL",
     ),
     binary_expression: $ => choice(
@@ -122,11 +125,22 @@ module.exports = grammar({
       $._type,
       choice($.block, ";"),
     ),
-    array_access: $ => seq(
-      $.identifier,
-      "[",
-      $._expression,
-      "]",
+    array_access: $ => prec.left(
+      PREC.ACCESS,
+      seq(
+        $.identifier,
+        "[",
+        $._expression,
+        "]",
+      ),
+    ),
+    struct_access: $ => prec.left(
+      PREC.ACCESS,
+      seq(
+        $._expression,
+        choice("->", "."),
+        alias($.identifier, $.field_identifier),
+      ),
     ),
     struct_expression: $ => seq(
       alias($.identifier, $.type_identifier),
@@ -156,6 +170,7 @@ module.exports = grammar({
       "as",
       $._type,
     ),
+    grouped_expression: $ => seq("(", $._expression, ")"),
     block: $ => seq(
       "{",
       repeat($._statement),
