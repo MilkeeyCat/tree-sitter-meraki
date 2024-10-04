@@ -136,7 +136,7 @@ module.exports = grammar({
     array_access: $ => prec.left(
       PREC.ACCESS,
       seq(
-        $.identifier,
+        $._expression,
         "[",
         $._expression,
         "]",
@@ -254,12 +254,20 @@ module.exports = grammar({
     function_call: $ => seq(
       alias($.identifier, $.function_call_name),
       "(",
-      repeat(
+      optional(
         seq(
-          $._expression,
-          optional(","),
+          seq(
+            $._expression
+          ),
+          repeat(
+            seq(
+              ",",
+              $._expression,
+            ),
+          ),
         ),
       ),
+      optional(","),
       ")",
     ),
 
