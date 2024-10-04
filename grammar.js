@@ -196,11 +196,14 @@ module.exports = grammar({
       alias($.identifier, $.type_identifier),
       "{",
       repeat(
-        seq(
-          alias($.identifier, $.struct_field),
-          ":",
-          $._type,
-          ";",
+        choice(
+          seq(
+            alias($.identifier, $.struct_field),
+            ":",
+            $._type,
+            ";",
+          ),
+          alias($.function_definition, $.method_definition),
         ),
       ),
       "}",

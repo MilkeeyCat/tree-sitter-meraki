@@ -56,6 +56,9 @@
 (type_identifier) @type
 (primitive_type) @type.builtin
 (identifier) @variable
+((identifier) @variable.builtin
+    (#eq? @variable.builtin "this")
+    (#has-ancestor? @variable.builtin method_definition))
 (struct_field) @variable.member
 
 (function_parameter) @variable.parameter
