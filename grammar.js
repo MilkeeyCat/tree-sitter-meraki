@@ -29,6 +29,8 @@ module.exports = grammar({
       $.primitive_type,
       $.pointer_type,
       $.array_type,
+      $.fn_type,
+      $.grouped_type,
       alias($.identifier, $.type_identifier),
     ),
     pointer_type: $ => prec.left(seq(
@@ -41,6 +43,25 @@ module.exports = grammar({
       $.integer, // For now allow only integer literals for array size
       "]",
     ),
+    fn_type: $ => prec.right(seq(
+      "fn",
+      "(",
+      optional(
+        seq(
+          $._type,
+          repeat(
+            seq(
+              ",",
+              $._type,
+            ),
+          ),
+        ),
+      ),
+      ")",
+      "->",
+      $._type,
+    )),
+    grouped_type: $ => seq("(", $._type, ")"),
     _expression: $ => choice(
       prec.left($.identifier),
       $.integer,

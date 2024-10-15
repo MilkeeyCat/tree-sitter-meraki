@@ -45,6 +45,14 @@
           "name": "array_type"
         },
         {
+          "type": "SYMBOL",
+          "name": "fn_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "grouped_type"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "SYMBOL",
@@ -90,6 +98,85 @@
         {
           "type": "STRING",
           "value": "]"
+        }
+      ]
+    },
+    "fn_type": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "fn"
+          },
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_type"
+                  },
+                  {
+                    "type": "REPEAT",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": ","
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "_type"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "STRING",
+            "value": ")"
+          },
+          {
+            "type": "STRING",
+            "value": "->"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type"
+          }
+        ]
+      }
+    },
+    "grouped_type": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_type"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
         }
       ]
     },
