@@ -138,12 +138,12 @@ module.exports = grammar({
       optional(
         seq(
           seq(
-            alias($.identifier, $.function_parameter), ":", $._type, optional(",")
+            alias($.identifier, $.function_parameter), ":", $._type
           ),
           repeat(
             seq(
               ",",
-              alias($.identifier, $.function_parameter), ":", $._type, optional(",")
+              alias($.identifier, $.function_parameter), ":", $._type
             ),
           ),
         ),
