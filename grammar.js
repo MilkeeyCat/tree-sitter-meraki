@@ -297,7 +297,7 @@ module.exports = grammar({
       /[^"]*/,
       "\"",
     ),
-    identifier: $ => /[A-Za-z_]+/,
+    identifier: $ => /[_\p{XID_Start}][_\p{XID_Continue}]*/,
     integer: $ => /\d+/,
   },
 })
