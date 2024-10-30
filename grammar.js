@@ -20,6 +20,7 @@ module.exports = grammar({
   rules: {
     source_file: $ => repeat($._definition),
     _definition: $ => choice(
+      $.module,
       $.function_definition,
       $.variable_definition,
       $.struct_declaration,
@@ -130,6 +131,13 @@ module.exports = grammar({
       $._type,
       optional(seq("=", $._expression)),
       ";",
+    ),
+    module: $ => seq(
+      "mod",
+      alias($.identifier, $.module_name),
+      "{",
+      repeat($._definition),
+      "}"
     ),
     function_definition: $ => seq(
       "fn",

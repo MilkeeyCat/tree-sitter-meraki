@@ -866,6 +866,41 @@
     }
   },
   {
+    "type": "module",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "function_definition",
+          "named": true
+        },
+        {
+          "type": "module",
+          "named": true
+        },
+        {
+          "type": "module_name",
+          "named": true
+        },
+        {
+          "type": "struct_declaration",
+          "named": true
+        },
+        {
+          "type": "variable_definition",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "pointer_type",
     "named": true,
     "fields": {},
@@ -982,6 +1017,10 @@
         },
         {
           "type": "function_definition",
+          "named": true
+        },
+        {
+          "type": "module",
           "named": true
         },
         {
@@ -1585,6 +1624,14 @@
   {
     "type": "let",
     "named": false
+  },
+  {
+    "type": "mod",
+    "named": false
+  },
+  {
+    "type": "module_name",
+    "named": true
   },
   {
     "type": "return",

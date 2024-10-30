@@ -1,3 +1,5 @@
+"mod" @keyword.import
+
 [
     "fn"
     "let"
