@@ -66,7 +66,9 @@
 
 (function_parameter) @variable.parameter
 (function_name) @function
-(function_call_name) @function.call
+(function_call
+    (identifier) @function.call
+)
 
 (integer) @number
 (string_literal) @string

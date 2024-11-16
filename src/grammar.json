@@ -1515,13 +1515,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "identifier"
-          },
-          "named": true,
-          "value": "function_call_name"
+          "type": "SYMBOL",
+          "name": "_expression"
         },
         {
           "type": "STRING",

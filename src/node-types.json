@@ -545,7 +545,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "array_access",
@@ -569,10 +569,6 @@
         },
         {
           "type": "function_call",
-          "named": true
-        },
-        {
-          "type": "function_call_name",
           "named": true
         },
         {
@@ -1576,10 +1572,6 @@
   {
     "type": "for",
     "named": false
-  },
-  {
-    "type": "function_call_name",
-    "named": true
   },
   {
     "type": "function_name",
