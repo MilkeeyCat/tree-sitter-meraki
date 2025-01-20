@@ -88,10 +88,6 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_type"
-        },
-        {
           "type": "STRING",
           "value": "["
         },
@@ -102,6 +98,10 @@
         {
           "type": "STRING",
           "value": "]"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_type"
         }
       ]
     },

@@ -39,10 +39,10 @@ module.exports = grammar({
       $._type,
     )),
     array_type: $ => seq(
-      $._type,
       "[",
       $.integer, // For now allow only integer literals for array size
       "]",
+      $._type,
     ),
     fn_type: $ => prec.right(seq(
       "fn",
